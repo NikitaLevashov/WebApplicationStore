@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApplicationStoreDAL.EF;
 
 namespace WebApplicationStoreWEB
 {
@@ -23,7 +24,12 @@ namespace WebApplicationStoreWEB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ProductContext>();
             services.AddControllersWithViews();
+            services.AddDistributedMemoryCache();
+            services.AddTransient<IRepository, RepositoryEFCore>();
+           
+         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

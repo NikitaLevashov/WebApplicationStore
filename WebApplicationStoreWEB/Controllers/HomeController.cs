@@ -3,26 +3,70 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WebApplicationStoreBL;
+using WebApplicationStoreDAL.Entities;
 using WebApplicationStoreWEB.Models;
 
 namespace WebApplicationStoreWEB.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IRepository<Product> _repository;
+        public HomeController(IRepository<Product> repository)
         {
-            _logger = logger;
+            _repository = repository ?? throw new ArgumentNullException();
         }
 
-        public IActionResult Index()
+        public IActionResult GetCatalogWithProduct(string catalog)
+        {
+            IEnumerable<Product> products = _repository.GetProducts(catalog);
+            return View(products);
+        }
+
+        public IActionResult GetCatalogMobileProductStart()
+        {
+            IEnumerable<Product> products = _repository.GetProducts("Mobile phone"); // страница по умолчанию согласно заданию
+            return View(products);
+        }
+
+        [HttpGet]
+        public IActionResult Home()
         {
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Home(string valueName)
+        {
+            string _userKey = "userName";
+
+            if (!string.IsNullOrEmpty(valueName))
+            {
+                CookieOptions cookieOptions = new CookieOptions();
+                cookieOptions.Expires = DateTime.Now.AddDays(1);
+                Response.Cookies.Append(_userKey, valueName, cookieOptions);
+                
+                return Redirect("Home");
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
+        public IActionResult Contacts()
+        {
+            return View("Contacts");
+        }
+
+        public IActionResult About()
+        {
+            return View("About");
+        }
         public IActionResult Privacy()
         {
             return View();

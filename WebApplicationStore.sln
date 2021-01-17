@@ -4,11 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationStoreWEB", "WebApplicationStoreWEB\WebApplicationStoreWEB.csproj", "{7643760D-0FAF-482D-AE23-1A1E35DC2681}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7C4C5F17-451A-46E7-B7EE-EA0B4C28CDDB} = {7C4C5F17-451A-46E7-B7EE-EA0B4C28CDDB}
+		{056D546F-0E71-4AB0-8EB0-D862933CF8E8} = {056D546F-0E71-4AB0-8EB0-D862933CF8E8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationStoreDAL", "WebApplicationStoreDAL\WebApplicationStoreDAL.csproj", "{056D546F-0E71-4AB0-8EB0-D862933CF8E8}"
 	ProjectSection(ProjectDependencies) = postProject
-		{7643760D-0FAF-482D-AE23-1A1E35DC2681} = {7643760D-0FAF-482D-AE23-1A1E35DC2681}
+		{7C4C5F17-451A-46E7-B7EE-EA0B4C28CDDB} = {7C4C5F17-451A-46E7-B7EE-EA0B4C28CDDB}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationStoreBL", "WemApplicationStoreBL\WebApplicationStoreBL.csproj", "{7C4C5F17-451A-46E7-B7EE-EA0B4C28CDDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +30,10 @@ Global
 		{056D546F-0E71-4AB0-8EB0-D862933CF8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{056D546F-0E71-4AB0-8EB0-D862933CF8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{056D546F-0E71-4AB0-8EB0-D862933CF8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4C5F17-451A-46E7-B7EE-EA0B4C28CDDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4C5F17-451A-46E7-B7EE-EA0B4C28CDDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4C5F17-451A-46E7-B7EE-EA0B4C28CDDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4C5F17-451A-46E7-B7EE-EA0B4C28CDDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
