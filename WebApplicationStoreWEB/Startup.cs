@@ -8,7 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApplicationStoreBLL.interfaces;
 using WebApplicationStoreDAL.EF;
+using WebApplicationStoreDAL.Entities;
+using WebApplicationStoreDAL.Repositories;
 
 namespace WebApplicationStoreWEB
 {
@@ -27,9 +30,7 @@ namespace WebApplicationStoreWEB
             services.AddDbContext<ProductContext>();
             services.AddControllersWithViews();
             services.AddDistributedMemoryCache();
-            services.AddTransient<IRepository, RepositoryEFCore>();
-           
-         
+            services.AddTransient<IRepositoryGetProduct<Product>, ProductRepositoryEFCore>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +57,7 @@ namespace WebApplicationStoreWEB
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=GetCatalogMobileProductStart}/{id?}");
             });
         }
     }

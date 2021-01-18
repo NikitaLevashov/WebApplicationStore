@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WemApplicationStoreBL\WebApplicationStoreBL.csproj" />
-  </ItemGroup>
+    <ProjectReference Include="..\WebApplicationStoreBLL\WebApplicationStoreBLL.csproj" />
+   </ItemGroup>
 
 </Project>

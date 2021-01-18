@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WebApplicationStoreBL;
+using WebApplicationStoreBLL.interfaces;
 using WebApplicationStoreDAL.Entities;
 using WebApplicationStoreWEB.Models;
 
@@ -14,8 +14,8 @@ namespace WebApplicationStoreWEB.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IRepository<Product> _repository;
-        public HomeController(IRepository<Product> repository)
+        private readonly IRepositoryGetProduct<Product> _repository;
+        public HomeController(IRepositoryGetProduct<Product> repository)
         {
             _repository = repository ?? throw new ArgumentNullException();
         }

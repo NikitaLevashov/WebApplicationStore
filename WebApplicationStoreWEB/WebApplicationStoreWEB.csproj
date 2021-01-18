@@ -13,9 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WebApplicationStoreDAL\WebApplicationStoreDAL.csproj" />
-    <ProjectReference Include="..\WemApplicationStoreBL\WebApplicationStoreBL.csproj" />
+    <ProjectReference Include="..\WebApplicationStoreBLL\WebApplicationStoreBLL.csproj" />
   </ItemGroup>
-
-
 
 </Project>
