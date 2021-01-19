@@ -29,8 +29,15 @@
             height: 290px;
             border-width: 2px;
             text-decoration: none;
+            word-wrap: break-word;
+            top: 82px;
+            top: 82px; /* Расстояние от верхнего края */
+            bottom: 0; /* Расстояние снизу  */
         }
-    
+         #size{
+            box-sizing: border-box;
+         }
+
         #main {
             height: 300px;
             margin-left: 150px;
@@ -85,22 +92,39 @@
                         #mainmenu ul li a:hover {
                             background-color: #666;
                         }
-    </style>
-</head>
-<body>
-    <form asp-action="Home" method="post">
-        <p>
-            <label for="text">Зарегестрироваться: </label>
-            <input type="text" placeholder="Введите имя" name="valueName" />
-        </p>
-        <p>
-            <button type="submit">Отправить</button>
-        </p>
-    </form>
 
-    <h2>@GetName()</h2>
-    <h1><pre>   Shop</pre></h1>
-    <div id="header">
+                        .comm-body.clearfix {
+    word-wrap: break-word;
+}
+    </style>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+
+        <form asp-action="Home" method="post">
+            <ul class="navbar navbar-nav">
+                <p>
+                    <h3>@GetName()</h3>
+                    <label for="text" class="text-left"><mark>Зарегестрироваться </mark> </label>
+                    <input type="text" class="btn btn-primary" placeholder="Введите имя" name="valueName" />
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                </p>
+
+            </ul>
+        </form>
+    </nav>
+       
+     <pre size="5" class="bg-warning">   Shop</pre>
+     <div id="header">
         <div id="mainmenu">
             <ul>
                 <li><a href="../../Home/Home">Home</a></li>
@@ -109,14 +133,15 @@
             </ul>
         </div>
     </div>
-    <div id="sidebar">
-        <ul>
-            <li><a href="../../Home/GetCatalogWithProduct?catalog=Mobile phone"><font size="3" color="green" face="Arial">Mobile phone</font> </a></li>
-            <li><a href="../../Home/GetCatalogWithProduct?catalog=Notebook"><font size="3" color="green" face="Arial">Notebook</font> </a></li>
-            <li><a href="../../Home/GetCatalogWithProduct?catalog=Camera"><font size="3" color="green" face="Arial">Camera</font></a></li>
-            <li><a href="../../Home/GetCatalogWithProduct?catalog=Headphones"><font size="3" color="green" face="Arial">Headphones</font></a></li>
-        </ul>
-   </div>
+     <div id="sidebar">
+         <ul>
+             <li><a href="../../Home/GetCatalogWithProduct?catalog=Mobile phone"><font size="3" color="green" face="Arial">Mobile phone</font> </a></li>
+             <li><a href="../../Home/GetCatalogWithProduct?catalog=Notebook"><font size="3" color="green" face="Arial">Notebook</font> </a></li>
+             <li><a href="../../Home/GetCatalogWithProduct?catalog=Camera"><font size="3" color="green" face="Arial">Camera</font></a></li>
+             <li><a href="../../Home/GetCatalogWithProduct?catalog=Headphones"><font size="3" color="green" face="Arial">Headphones</font></a></li>
+         </ul>
+
+     </div>
     <div id="main">Page content</div>
     <div id="footer">Copyright 2020</div>
 </body>
